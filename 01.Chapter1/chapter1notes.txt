@@ -1,0 +1,20 @@
+"""
+Multiline Comments(dont use these days)
+modules are the code which we import as packages.
+pip command is used to install modules in python.
+"""
+# This prints a joke using pyjokes module
+# You can comments many line together by selecting all the lines then ctrl + /
+
+# You can print multilines sting in a single print using triple " or triple '
+
+# REPL stands for Read Execute Print Loop. 
+# It is a concept when python is opend in terminal.
+# So whenever you use python in terminal it first reads evaluate print and loop it goes back to read again.
+
+# open cmd --> python --> 5*1 enter 5*2 and so on 
+
+# There are two types of modules
+#  Built-in and External
+# 1) Built-in are those which are created by you and are not accesable globally .
+# 2) External are globally accessable modules that are imported using pip command.

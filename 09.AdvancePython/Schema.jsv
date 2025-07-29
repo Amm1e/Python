@@ -1,0 +1,378 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "id": "urn:jsonschema:com:vodafone:group:schema:vbm:payment:process_payment:v1:EstablishPaymentVBMRequestType",
+    "properties": {"EstablishPaymentVBMRequest": {
+        "type": "object",
+        "properties": {
+            "MetaInfoRequest": {
+                "type": "object",
+                "properties": {
+                    "RouteInfo": {
+                        "type": "object",
+                        "id": "urn:jsonschema:com:vodafone:group:contract:vho:header:v1:RouteInfoType",
+                        "properties": {"route": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "id": "urn:jsonschema:com:vodafone:group:contract:vho:header:v1:RouteType",
+                                "properties": {
+                                    "id": {"type": "string"},
+                                    "priority": {"type": "integer"},
+                                    "keys": {
+                                        "type": "object",
+                                        "id": "urn:jsonschema:com:vodafone:group:contract:vho:header:v1:RouteType:Keys",
+                                        "properties": {"key": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object",
+                                                "id": "urn:jsonschema:com:vodafone:group:contract:vho:header:v1:RouteType:Keys:Key",
+                                                "properties": {
+                                                    "value": {"type": "string"},
+                                                    "name": {"type": "string"},
+                                                    "orderIndex": {"type": "integer"}
+                                                }
+                                            }
+                                        }}
+                                    }
+                                }
+                            }
+                        }}
+                    },
+                    "Cache": {
+                        "type": "object",
+                        "id": "urn:jsonschema:com:vodafone:group:contract:vho:header:v1:CacheType",
+                        "properties": {
+                            "useCache": {
+                                "type": "string",
+                                "enum": [
+                                    "YES",
+                                    "NO",
+                                    "DEFAULT"
+                                ]
+                            },
+                            "maxAge": {"type": "integer"},
+                            "lastModified": {
+                                "type": "integer",
+                                "format": "utc-millisec"
+                            }
+                        }
+                    },
+                    "Correlation": {
+                        "type": "object",
+                        "id": "urn:jsonschema:com:vodafone:group:contract:vho:header:v1:CorrelationType",
+                        "properties": {"conversationID": {"type": "string"}}
+                    },
+                    "Destination": {
+                        "type": "object",
+                        "id": "urn:jsonschema:com:vodafone:group:contract:vho:header:v1:DestinationType",
+                        "properties": {
+                            "countryCode": {"type": "string"},
+                            "languageCode": {"type": "string"},
+                            "operator": {"type": "string"},
+                            "division": {"type": "string"},
+                            "system": {"type": "string"},
+                            "timestamp": {
+                                "type": "integer",
+                                "format": "utc-millisec"
+                            }
+                        }
+                    },
+                    "Source": {
+                        "type": "object",
+                        "id": "urn:jsonschema:com:vodafone:group:contract:vho:header:v1:SourceType",
+                        "properties": {
+                            "countryCode": {"type": "string"},
+                            "operator": {"type": "string"},
+                            "division": {"type": "string"},
+                            "system": {"type": "string"},
+                            "timestamp": {
+                                "type": "integer",
+                                "format": "utc-millisec"
+                            },
+                            "identity": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "id": "urn:jsonschema:com:vodafone:group:contract:vho:header:v1:IdentityType",
+                                    "properties": {"token": {"type": "string"}}
+                                }
+                            },
+                            "languageCode": {"type": "string"}
+                        }
+                    }
+                }
+            },
+"GetSubscriptionListRequest":{
+  "type" : "object",
+  "id" : "urn:jsonschema:com:vodafone:group:schema:vbm:subscription:subscription:v1:GetSubscriptionListVBMRequestType",
+  "properties" : {
+    "startIndex" : {
+      "type" : "object",
+      "id" : "urn:jsonschema:un:unece:uncefact:documentation:standard:corecomponenttype:_2:NumericType",
+      "properties" : {
+        "value" : {
+          "type" : "string"
+        },
+        "format" : {
+          "type" : "string"
+        }
+      }
+    },
+    "indexPerPage" : {
+      "type" : "object",
+      "$ref" : "urn:jsonschema:un:unece:uncefact:documentation:standard:corecomponenttype:_2:NumericType"
+    },
+    "criteria" : {
+      "type" : "object",
+      "id" : "urn:jsonschema:com:vodafone:group:schema:common:v1:QueryType:Criteria",
+      "properties" : {
+        "queryExpression" : {
+          "type" : "object",
+          "id" : "urn:jsonschema:com:vodafone:group:schema:common:v1:QueryType:Criteria:QueryExpression",
+          "properties" : {
+            "valueExpression" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "id" : "urn:jsonschema:com:vodafone:group:schema:common:v1:ValueExpressionType",
+                "properties" : {
+                  "value" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "object",
+                      "id" : "urn:jsonschema:un:unece:uncefact:documentation:standard:corecomponenttype:_2:TextType",
+                      "properties" : {
+                        "value" : {
+                          "type" : "string"
+                        },
+                        "languageID" : {
+                          "type" : "string"
+                        },
+                        "languageLocaleID" : {
+                          "type" : "string"
+                        }
+                      }
+                    }
+                  },
+                  "queryOperatorCode" : {
+                    "type" : "string",
+                    "enum" : [ "EQUALS", "NOT_EQUALS", "GREATER_THAN", "GREATER_THAN_EQUALS", "LESS_THAN", "LESS_THAN_EQUALS", "CONTAINS", "DOES_NOT_CONTAIN", "LIKE", "NOT_LIKE" ]
+                  },
+                  "path" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            },
+            "queryExpression" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "id" : "urn:jsonschema:com:vodafone:group:schema:common:v1:QueryExpressionType",
+                "properties" : {
+                  "valueExpression" : {
+                    "type" : "array",
+                    "items" : {
+                      "type" : "object",
+                      "$ref" : "urn:jsonschema:com:vodafone:group:schema:common:v1:ValueExpressionType"
+                    }
+                  },
+                  "logicalOperatorCode" : {
+                    "type" : "string",
+                    "enum" : [ "AND", "OR" ]
+                  },
+                  "negationIndicator" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "sortExpression" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "id" : "urn:jsonschema:com:vodafone:group:schema:common:v1:SortExpressionType",
+        "properties" : {
+          "pathText" : {
+            "type" : "array",
+            "items" : {
+              "type" : "string"
+            }
+          },
+          "sortOrderCode" : {
+            "type" : "string",
+            "enum" : [ "ASC", "DSC" ]
+          },
+          "collationAlgorithmCode" : {
+            "type" : "string",
+            "enum" : [ "UTS_10" ]
+          }
+        }
+      }
+    },
+    "identification" : {
+      "type" : "object",
+      "id" : "urn:jsonschema:com:vodafone:group:schema:common:v1:BaseComponentType",
+      "properties" : {
+        "name" : {
+          "type" : "object",
+          "$ref" : "urn:jsonschema:un:unece:uncefact:documentation:standard:corecomponenttype:_2:TextType"
+        },
+        "desc" : {
+          "type" : "object",
+          "$ref" : "urn:jsonschema:un:unece:uncefact:documentation:standard:corecomponenttype:_2:TextType"
+        },
+        "actionCode" : {
+          "type" : "string",
+          "enum" : [ "ADD", "UPDATE", "DELETE", "DELET" ]
+        },
+        "type" : {
+          "type" : "object",
+          "id" : "urn:jsonschema:un:unece:uncefact:documentation:standard:corecomponenttype:_2:CodeType",
+          "properties" : {
+            "value" : {
+              "type" : "string"
+            },
+            "listID" : {
+              "type" : "string"
+            },
+            "listAgencyID" : {
+              "type" : "string"
+            },
+            "listAgencyName" : {
+              "type" : "string"
+            },
+            "listName" : {
+              "type" : "string"
+            },
+            "listVersionID" : {
+              "type" : "string"
+            },
+            "name" : {
+              "type" : "string"
+            },
+            "languageID" : {
+              "type" : "string"
+            },
+            "listURI" : {
+              "type" : "string"
+            },
+            "listSchemeURI" : {
+              "type" : "string"
+            }
+          }
+        },
+        "categories" : {
+          "type" : "object",
+          "id" : "urn:jsonschema:com:vodafone:group:schema:common:v1:BaseComponentType:Categories",
+          "properties" : {
+            "category" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "id" : "urn:jsonschema:com:vodafone:group:schema:common:v1:BaseComponentType:Categories:Category",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  },
+                  "listID" : {
+                    "type" : "string"
+                  },
+                  "listAgencyID" : {
+                    "type" : "string"
+                  },
+                  "listAgencyName" : {
+                    "type" : "string"
+                  },
+                  "listName" : {
+                    "type" : "string"
+                  },
+                  "listVersionID" : {
+                    "type" : "string"
+                  },
+                  "name" : {
+                    "type" : "string"
+                  },
+                  "languageID" : {
+                    "type" : "string"
+                  },
+                  "listURI" : {
+                    "type" : "string"
+                  },
+                  "listSchemeURI" : {
+                    "type" : "string"
+                  },
+                  "listHierarchyID" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "status" : {
+          "type" : "object",
+          "$ref" : "urn:jsonschema:un:unece:uncefact:documentation:standard:corecomponenttype:_2:CodeType"
+        },
+        "ids" : {
+          "type" : "object",
+          "id" : "urn:jsonschema:com:vodafone:group:schema:common:v1:InfoComponentType:IDs",
+          "properties" : {
+            "id" : {
+              "type" : "array",
+              "items" : {
+                "type" : "object",
+                "id" : "urn:jsonschema:un:unece:uncefact:documentation:standard:corecomponenttype:_2:IDType",
+                "properties" : {
+                  "value" : {
+                    "type" : "string"
+                  },
+                  "schemeID" : {
+                    "type" : "string"
+                  },
+                  "schemeName" : {
+                    "type" : "string"
+                  },
+                  "schemeAgencyID" : {
+                    "type" : "string"
+                  },
+                  "schemeAgencyName" : {
+                    "type" : "string"
+                  },
+                  "schemeVersionID" : {
+                    "type" : "string"
+                  },
+                  "schemeDataURI" : {
+                    "type" : "string"
+                  },
+                  "schemeURI" : {
+                    "type" : "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "fields" : {
+      "type" : "object",
+      "id" : "urn:jsonschema:com:vodafone:group:schema:common:v1:QueryType:Fields",
+      "properties" : {
+        "field" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+  }
+}
+}
+}}}
